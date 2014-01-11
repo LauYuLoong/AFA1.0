@@ -1,0 +1,5 @@
+<tradeconf templateCode="TemplateCode" enableLogging="true" enableDebug="false" reuseDbConnection="true" enableStatics="false" timeout="50">
+	<TransCode alias="TransCode"/>
+	<TemplateCode alias="TemplateCode"/>
+	<ReservedCode alias="ReservedCode"/>
+</tradeconf>

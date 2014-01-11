@@ -1,0 +1,76 @@
+###############################################################################
+#			安徽农信主机接口上行包定义文件，下行包根据情况自动拆分
+###############################################################################
+#	报文接口定义格式为：
+#		序号		数据类型		目标长度		模块名	变量名	'默认值'		中文描述
+# 	其中数据类型包括以下几种：
+#		'1' － 表示一个结构开始
+#		'2' － 表示一个数组开始
+#		'3' － 字节类型，字节
+#		'4' － 短整形数据，网络序字节
+#		'5' － 4位整形，网络序整形
+#		'6' － 小数，字符串方式,Decimal
+#		'7' － 短字符串，字符串方式
+#		'8' － 短字节流，字节流方式
+#		'9' － 日期，字符串方式，以YYYYMMDD的方式
+#		'10' － 时间，字符串方式，以HHMMSS的方式
+#		'11' － 长字符串，字符串方式
+#		'12' － 长字节流，字节流方式
+#	上述'1'和'2'两种类型无需显式生成，实际只需使用其它的数据类型，只有for循环中自动使用
+###############################################################################
+#        MACC.map 为记帐接口 现金贷方帐号为必填,借方帐号为空
+#        时间      2006-09-12 10000686506210000000016
+###############################################################################
+
+001	7	4	HostContext		I1TRCD	    '8813'	单笔记帐交易的主机交易码
+002	7	10	HostContext		I1SBNO	    ''	        该交易的发起机构
+003	7	6	HostContext		I1USID	    ''	        交易柜员号
+004	7	10	HostContext		I1AUUS	    ''	        授权柜员
+005	7	6	HostContext		I1AUPS	    ''	        授权柜员密码
+006	7	40	HostContext		I1WSNO	    ''	        终端号
+007	6	2	HostContext		I1ACUR 	    '1'	        重复次数
+
+forb	3	HostContext		I1ACUR	I2
+008	7	8	HostContext		I2NBBH 	    ''	        代理业务号
+009	6	8	HostContext     	I2CLDT      ''          批量委托日期
+010	7	12	HostContext     	I2UNSQ      ''          批量委托号
+011	6	8	HostContext		I2FEDT 	    ''	        前置日期
+012	7	12	HostContext		I2RBSQ 	    ''	        前置流水号
+013	6	8	HostContext		I2DATE 	    ''	        外系统帐务日期
+014	6	8	HostContext		I2TRDT 	    ''	        创建日期
+015	7	12	HostContext		I2RGSQ 	    ''	        创建流水号
+016	7	1	HostContext		I2RVFG 	    ''	        蓝红字标志
+017	7	10	HostContext		I2SBNO 	    ''	        交易机构
+018	7	6	HostContext		I2TELR 	    ''	        交易柜员
+019	7	3	HostContext		I2TRSQ 	    ''	        组号
+020	7	2	HostContext		I2TINO 	    ''	        组内序号
+021	7	25	HostContext		I2SBAC 	    ''	        借方账号
+022	7	62	HostContext		I2ACNM 	    ''	        借方账户名称
+023	7	9	HostContext		I2DASQ 	    ''	        销帐序号
+024	7	1	HostContext		I2CFFG 	    ''	        密码校验方式
+025	7	6	HostContext		I2PSWD 	    ''	        密码
+026	7	16	HostContext		I2PS16 	    ''	        支付密码
+027	7	2	HostContext		I2IDTY 	    ''	        证件种类
+028	7	20	HostContext		I2IDNO 	    ''	        证件号码
+029	7	1	HostContext		I2OPTY 	    '0'	        证件校验标志
+030	7	2	HostContext		I2CETY 	    ''	        凭证种类
+031	7	10	HostContext		I2CCSQ 	    ''	        凭证号
+032	7	1	HostContext		I2PKFG 	    ''	        存折支票标志
+033	7	1	HostContext		I2TRFG 	    ''	        凭证处理标志
+034	7	25	HostContext		I2RBAC 	    ''	        贷方账号
+035	7	62	HostContext		I2OTNM 	    ''	        贷方账户名称
+036	7	2	HostContext		I2CYNO 	    '01'        币种
+037	7	1	HostContext		I2CTFG 	    ''	        钞汇标志
+038	7	1	HostContext		I2CATR 	    '0'	        现转标志
+039	7	1	HostContext		I2WLBZ 	    '0'	        往来帐标志
+040	6	15	HostContext		I2TRAM 	    ''	        发生额
+041	7	3	HostContext		I2SMCD 	    ''	        摘要代码
+042	7	22	HostContext		I2CHEX 	    ''	        摘要说明
+043	7	1	HostContext		I2NMFG 	    '0'	        户名效验标志
+044	7	12	HostContext		I2FZNO 	    ''	        冻结编号
+045	7	30	HostContext		I2AMTT 	    ''	        磁道2信息
+046	7	107	HostContext		I2AMST 	    ''	        磁道3信息
+047	7	30	HostContext		I2APX1 	    ''	        附加信息
+048	7	30	HostContext		I2APX2 	    ''	        附加信息
+049	7	25	HostContext		I2REAC 	    ''	        挂帐账号
+fore

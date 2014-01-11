@@ -1,0 +1,7 @@
+ls *.ini  | awk '{
+                  split($1,arr,".")
+                  cmd=sprintf("mv %s.ini rcc_%s.ini",arr[1],arr[1])
+                  printf "%s\n" , cmd
+                  system(cmd)
+                 } '
+

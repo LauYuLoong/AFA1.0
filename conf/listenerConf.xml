@@ -1,0 +1,12 @@
+ï»<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE afa-listener PUBLIC "-//Agree Technology, Ltd.//DTD AFA Application 2.0//EN" "http://www.agree.com.cn/dtd/afa-listener_2_0.dtd"-->
+<LISTENER listenPort="9002" serviceSelectorThreads="30"	clientSelectorThreads="30" requestQueueSize="2000" collectorInterval="10" enableMonitor="false" enableLogging="true">
+	<TRADEGROUPS defaultDispatchThreads="18" defaultQueueSize="1000" defaultTimeToLive="600" defaultPriority="def" defaultEnableFlag="true">
+		<GROUP name="test" dispatcherThreads="15" queueSize="2000" timeToLive="18000" priority="def" enableFlag="true">
+			<LOCALPOLICY serviceProcessNum="10"/>
+			<REMOTEPOLICY>
+				<TRADE templateCode="001000" transCode="1000" reservedCode="" priority="40"/>
+			</REMOTEPOLICY>
+		</GROUP>
+	</TRADEGROUPS>
+</LISTENER>

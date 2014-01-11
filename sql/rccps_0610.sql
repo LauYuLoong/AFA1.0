@@ -1,0 +1,1238 @@
+--
+--ER/STUDIO 7.0 SQL CODE GENERATION
+-- COMPANY :      ICBCOA
+-- PROJECT :      ????????????????????.DM1
+-- AUTHOR :       ICBC
+--
+-- DATE CREATED : THURSDAY, JUNE 05, 2008 10:59:51
+-- TARGET DBMS : IBM DB2 UDB 8.X
+--
+
+DROP TABLE RCC_ATRCHK
+;
+DROP TABLE RCC_BILBKA
+;
+DROP TABLE RCC_BILINF
+;
+DROP TABLE RCC_CADBNK
+;
+DROP TABLE RCC_CSHALM
+;
+DROP TABLE RCC_ERRINF
+;
+DROP TABLE RCC_HDCBKA
+;
+DROP TABLE RCC_HDDZCZ
+;
+DROP TABLE RCC_HDDZHZ
+;
+DROP TABLE RCC_HDDZMX
+;
+DROP TABLE RCC_HPCBKA
+;
+DROP TABLE RCC_HPDZCZ
+;
+DROP TABLE RCC_HPDZHZ
+;
+DROP TABLE RCC_HPDZMX
+;
+DROP TABLE RCC_INSBKA
+;
+DROP TABLE RCC_MBRIFA
+;
+DROP TABLE RCC_MRQTBL
+;
+DROP TABLE RCC_PAMTBL
+;
+DROP TABLE RCC_PAYBNK
+;
+DROP TABLE RCC_PBDATE
+;
+DROP TABLE RCC_PJCBKA
+;
+DROP TABLE RCC_QSQHQD
+;
+DROP TABLE RCC_REKBAL
+;
+DROP TABLE RCC_SPBSTA
+;
+DROP TABLE RCC_SSTLOG
+;
+DROP TABLE RCC_SUBBRA
+;
+DROP TABLE RCC_TRCBKA
+;
+DROP TABLE RCC_TRCCAN
+;
+DROP TABLE RCC_TRCSTA
+;
+DROP TABLE RCC_ZTCBKA
+;
+--
+-- TABLE: RCC_ATRCHK
+--
+
+CREATE TABLE RCC_ATRCHK(
+    SNDBNKCO    VARCHAR(10)          NOT NULL,
+    TRCDAT      VARCHAR(8)           NOT NULL,
+    TRCNO       VARCHAR(8)           NOT NULL,
+    ROPRTPNO    VARCHAR(2),
+    TRCCO       VARCHAR(7),
+    RCVBNKCO    VARCHAR(10),
+    CUR         VARCHAR(3),
+    RDTCNT      DECIMAL(10, 0),
+    RDTAMT      DECIMAL(15, 2),
+    RCTCNT      DECIMAL(10, 0),
+    RCTAMT      DECIMAL(15, 2),
+    SDTCNT      DECIMAL(10, 0),
+    SDTAMT      DECIMAL(15, 2),
+    SCTCNT      DECIMAL(10, 0),
+    SCTAMT      DECIMAL(15, 2),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_ATRCHK_PK PRIMARY KEY (SNDBNKCO, TRCDAT, TRCNO)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_BILBKA
+--
+
+CREATE TABLE RCC_BILBKA(
+    BJEDTE        VARCHAR(8)           NOT NULL,
+    BSPSQN        VARCHAR(12)          NOT NULL,
+    BRSFLG        VARCHAR(1)           NOT NULL,
+    BESBNO        VARCHAR(10),
+    BEACSB        VARCHAR(10),
+    BETELR        VARCHAR(6),
+    BEAUUS        VARCHAR(6),
+    DCFLG         VARCHAR(1),
+    OPRATTNO      VARCHAR(2),
+    NCCWKDAT      VARCHAR(8),
+    TRCCO         VARCHAR(7),
+    TRCDAT        VARCHAR(8),
+    TRCNO         VARCHAR(8),
+    SNDBNKCO      VARCHAR(12),
+    SNDBNKNM      VARCHAR(60),
+    RCVBNKCO      VARCHAR(12),
+    RCVBNKNM      VARCHAR(60),
+    BILVER        VARCHAR(2),
+    BILNO         VARCHAR(8),
+    CHRGTYP       VARCHAR(1),
+    LOCCUSCHRG    DECIMAL(15, 2),
+    BILRS         VARCHAR(1),
+    HPCUSQ        SMALLINT          NOT NULL,
+    HPSTAT        VARCHAR(2),
+    NOTE1         VARCHAR(10),
+    NOTE2         VARCHAR(20),
+    NOTE3         VARCHAR(60),
+    NOTE4         VARCHAR(60),
+    CONSTRAINT RCC_BILBKA_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_BILINF
+--
+
+CREATE TABLE RCC_BILINF(
+    BILVER      VARCHAR(2)           NOT NULL,
+    BILNO       VARCHAR(8)           NOT NULL,
+    BILRS       VARCHAR(1)           NOT NULL,
+    BILTYP      VARCHAR(2),
+    BILDAT      VARCHAR(8),
+    PAYWAY      VARCHAR(1),
+    PAYBNKCO    VARCHAR(10),
+    PAYBNKNM    VARCHAR(60),
+    PYRACC      VARCHAR(32),
+    PYRNAM      VARCHAR(60),
+    PYRADDR     VARCHAR(60),
+    PYEACC      VARCHAR(32),
+    PYENAM      VARCHAR(60),
+    PYEADDR     VARCHAR(60),
+    PYHACC      VARCHAR(32),
+    PYHNAM      VARCHAR(60),
+    PYHADDR     VARCHAR(60),
+    PYITYP      VARCHAR(1),
+    PYIACC      VARCHAR(32),
+    PYINAM      VARCHAR(60),
+    BILAMT      DECIMAL(15, 2),
+    OCCAMT      DECIMAL(15, 2),
+    RMNAMT      DECIMAL(15, 2),
+    CUR         VARCHAR(3),
+    SEAL        VARCHAR(10),
+    USE         VARCHAR(20),
+    REMARK      VARCHAR(30),
+    HPCUSQ      SMALLINT          NOT NULL,
+    HPSTAT      VARCHAR(2),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_BILINF_PK PRIMARY KEY (BILVER, BILNO, BILRS)
+)
+;
+
+
+
+--
+-- TABLE: RCC_CADBNK
+--
+
+CREATE TABLE RCC_CADBNK(
+    CARDBIN    VARCHAR(8)        NOT NULL,
+    BANKBIN    VARCHAR(10)       NOT NULL,
+    NOTE1      VARCHAR(10),
+    NOTE2      VARCHAR(20),
+    NOTE3      VARCHAR(60),
+    NOTE4      VARCHAR(60),
+    CONSTRAINT RCC_CADBNK_PK PRIMARY KEY (CARDBIN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_CSHALM
+--
+
+CREATE TABLE RCC_CSHALM(
+    BJEDTE      VARCHAR(8)           NOT NULL,
+    BSPSQN      VARCHAR(12)          NOT NULL,
+    NCCWKDAT    VARCHAR(8),
+    TRCCO       VARCHAR(7),
+    TRCDAT      VARCHAR(6),
+    TRCNO       VARCHAR(8),
+    SNDBNKCO    VARCHAR(10),
+    SNDBNKNM    VARCHAR(60),
+    RCVBNKCO    VARCHAR(10),
+    RCVBNKNM    VARCHAR(60),
+    CUR         VARCHAR(3),
+    POSITION    DECIMAL(15, 2),
+    POSALAMT    DECIMAL(15, 2),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_CSHALM_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_ERRINF
+--
+
+CREATE TABLE RCC_ERRINF(
+    MBRTYP    VARCHAR(1)         NOT NULL,
+    ERRKEY    VARCHAR(8)         NOT NULL,
+    ERRSTR    VARCHAR(255),
+    NOTE1     VARCHAR(10),
+    NOTE2     VARCHAR(20),
+    NOTE3     VARCHAR(60),
+    NOTE4     VARCHAR(60),
+    CONSTRAINT RCC_ERRINF_PK PRIMARY KEY (MBRTYP, ERRKEY)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_HDCBKA
+--
+
+CREATE TABLE RCC_HDCBKA(
+    BJEDTE      VARCHAR(8)           NOT NULL,
+    BSPSQN      VARCHAR(12)          NOT NULL,
+    BRSFLG      VARCHAR(1)           NOT NULL,
+    BESBNO      VARCHAR(10),
+    BETELR      VARCHAR(6),
+    BEAUUS      VARCHAR(6),
+    NCCWKDAT    VARCHAR(8),
+    TRCCO       VARCHAR(7),
+    TRCDAT      VARCHAR(8),
+    TRCNO       VARCHAR(8),
+    SNDBNKCO    VARCHAR(10),
+    SNDBNKNM    VARCHAR(60),
+    RCVBNKCO    VARCHAR(10),
+    RCVBNKNM    VARCHAR(60),
+    BOJEDT      VARCHAR(8),
+    BOSPSQ      VARCHAR(12),
+    ORTRCCO     VARCHAR(7),
+    CUR         VARCHAR(3),
+    OCCAMT      DECIMAL(15, 2),
+    CONT        VARCHAR(255),
+    PYRACC      VARCHAR(32),
+    PYEACC      VARCHAR(32),
+    ISDEAL      VARCHAR(1),
+    PRCCO       VARCHAR(8),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_HDCBKA_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_HDDZCZ
+--
+
+CREATE TABLE RCC_HDDZCZ(
+    SNDBNKCO    VARCHAR(10)       NOT NULL,
+    TRCDAT      VARCHAR(8)        NOT NULL,
+    TRCNO       VARCHAR(8)        NOT NULL,
+    NCCWKDAT    VARCHAR(8),
+    BJEDTE      VARCHAR(8),
+    BSPSQN      VARCHAR(12),
+    EACTYP      VARCHAR(1),
+    EACINF      VARCHAR(60),
+    ISDEAL      VARCHAR(1),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_HDDZCZ_PK PRIMARY KEY (SNDBNKCO, TRCDAT, TRCNO)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_HDDZHZ
+--
+
+CREATE TABLE RCC_HDDZHZ(
+    NCCWKDAT    VARCHAR(8)           NOT NULL,
+    TRCCO       VARCHAR(7)           NOT NULL,
+    BRSFLG      VARCHAR(1)           NOT NULL,
+    TRCNAM      VARCHAR(60),
+    TRCRSNM     VARCHAR(60),
+    TCNT        SMALLINT          NOT NULL,
+    CTAMT       DECIMAL(16, 2),
+    DTAMT       DECIMAL(16, 2),
+    OFSTAMT     DECIMAL(16, 2),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_HDDZHZ_PK PRIMARY KEY (NCCWKDAT, TRCCO, BRSFLG)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_HDDZMX
+--
+
+CREATE TABLE RCC_HDDZMX(
+    SNDBNKCO    VARCHAR(10)          NOT NULL,
+    TRCDAT      VARCHAR(8)           NOT NULL,
+    TRCNO       VARCHAR(8)           NOT NULL,
+    NCCWKDAT    VARCHAR(8),
+    MSGTYPCO    VARCHAR(6),
+    RCVMBRCO    VARCHAR(10),
+    SNDMBRCO    VARCHAR(10),
+    TRCCO       VARCHAR(7),
+    SNDBRHCO    VARCHAR(6),
+    SNDCLKNO    VARCHAR(8),
+    SNDTRDAT    VARCHAR(8),
+    SNDTRTIM    VARCHAR(6),
+    MSGFLGNO    VARCHAR(26),
+    ORMFN       VARCHAR(26),
+    OPRTYPNO    VARCHAR(2),
+    ROPRTPNO    VARCHAR(2),
+    OPRSTNO     VARCHAR(3),
+    SNDBNKNM    VARCHAR(60),
+    RCVBNKCO    VARCHAR(10),
+    RCVBNKNM    VARCHAR(60),
+    CUR         VARCHAR(3),
+    OCCAMT      DECIMAL(15, 2),
+    PYRACC      VARCHAR(32),
+    PYRNAM      VARCHAR(60),
+    PYRADDR     VARCHAR(60),
+    PYEACC      VARCHAR(32),
+    PYENAM      VARCHAR(60),
+    PYEADDR     VARCHAR(60),
+    OPRATTNO    VARCHAR(2),
+    SEAL        VARCHAR(10),
+    ORTRCCO     VARCHAR(7),
+    ORSNDBNK    VARCHAR(10),
+    ORRCVBNK    VARCHAR(10),
+    ORTRCDAT    VARCHAR(8),
+    ORTRCNO     VARCHAR(8),
+    REMARK      VARCHAR(30),
+    BILDAT      VARCHAR(8),
+    BILNO       VARCHAR(8),
+    BILTYP      VARCHAR(2),
+    CPSAMT      DECIMAL(16, 2),
+    RFUAMT      DECIMAL(16, 2),
+    STRINFO     VARCHAR(60),
+    USE         VARCHAR(20),
+    BJEDTE      VARCHAR(8),
+    BSPSQN      VARCHAR(12),
+    BCSTAT      VARCHAR(2),
+    BDWFLG      VARCHAR(1),
+    EACTYP      VARCHAR(1),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_HDDZMX_PK PRIMARY KEY (SNDBNKCO, TRCDAT, TRCNO)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_HPCBKA
+--
+
+CREATE TABLE RCC_HPCBKA(
+    BJEDTE      VARCHAR(8)           NOT NULL,
+    BSPSQN      VARCHAR(12)          NOT NULL,
+    BRSFLG      VARCHAR(1)           NOT NULL,
+    BESBNO      VARCHAR(10),
+    BETELR      VARCHAR(6),
+    BEAUUS      VARCHAR(6),
+    NCCWKDAT    VARCHAR(8),
+    TRCCO       VARCHAR(7),
+    TRCDAT      VARCHAR(8),
+    TRCNO       VARCHAR(8),
+    SNDBNKCO    VARCHAR(10),
+    SNDBNKNM    VARCHAR(60),
+    RCVBNKCO    VARCHAR(10),
+    RCVBNKNM    VARCHAR(60),
+    BOJEDT      VARCHAR(8),
+    BOSPSQ      VARCHAR(12),
+    ORTRCCO     VARCHAR(7),
+    BILVER      VARCHAR(2),
+    BILNO       VARCHAR(8),
+    BILDAT      VARCHAR(8),
+    PAYWAY      VARCHAR(1),
+    CUR         VARCHAR(3),
+    BILAMT      DECIMAL(15, 2),
+    PYRACC      VARCHAR(32),
+    PYRNAM      VARCHAR(60),
+    PYEACC      VARCHAR(32),
+    PYENAM      VARCHAR(60),
+    CONT        VARCHAR(255),
+    ISDEAL       VARCHAR(1),
+    PRCCO       VARCHAR(8),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_HPCBKA_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_HPDZCZ
+--
+
+CREATE TABLE RCC_HPDZCZ(
+    SNDBNKCO    VARCHAR(10)       NOT NULL,
+    TRCDAT      VARCHAR(8)        NOT NULL,
+    TRCNO       VARCHAR(8)        NOT NULL,
+    NCCWKDAT    VARCHAR(8),
+    BJEDTE      VARCHAR(8),
+    BSPSQN      VARCHAR(12),
+    EACTYP      VARCHAR(1),
+    EACINF      VARCHAR(60),
+    ISDEAL      VARCHAR(1),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_HPDZCZ_PK PRIMARY KEY (SNDBNKCO, TRCDAT, TRCNO)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_HPDZHZ
+--
+
+CREATE TABLE RCC_HPDZHZ(
+    NCCWKDAT    VARCHAR(8)           NOT NULL,
+    TRCCO       VARCHAR(7)           NOT NULL,
+    BRSFLG      VARCHAR(1)           NOT NULL,
+    TRCNAM      VARCHAR(60),
+    TRCRSNM     VARCHAR(60),
+    TCNT        SMALLINT          NOT NULL,
+    CTAMT       DECIMAL(16, 2),
+    DTAMT       DECIMAL(16, 2),
+    OFSTAMT     DECIMAL(16, 2),
+    CLAMT       DECIMAL(16, 2),
+    DLAMT       DECIMAL(16, 2),
+    OFSLAMT     DECIMAL(16, 2),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_HPDZHZ_PK PRIMARY KEY (NCCWKDAT, TRCCO, BRSFLG)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_HPDZMX
+--
+
+CREATE TABLE RCC_HPDZMX(
+    SNDBNKCO    VARCHAR(10)          NOT NULL,
+    TRCDAT      VARCHAR(8)           NOT NULL,
+    TRCNO       VARCHAR(8)           NOT NULL,
+    NCCWKDAT    VARCHAR(8),
+    MSGTYPCO    VARCHAR(6),
+    RCVMBRCO    VARCHAR(10),
+    SNDMBRCO    VARCHAR(10),
+    TRCCO       VARCHAR(7),
+    SNDBRHCO    VARCHAR(6),
+    SNDCLKNO    VARCHAR(8),
+    SNDTRDAT    VARCHAR(8),
+    SNDTRTIM    VARCHAR(6),
+    MSGFLGNO    VARCHAR(26),
+    ORMFN       VARCHAR(26),
+    OPRTYPNO    VARCHAR(2),
+    ROPRTPNO    VARCHAR(2),
+    SNDBNKNM    VARCHAR(60),
+    RCVBNKCO    VARCHAR(10),
+    RCVBNKNM    VARCHAR(60),
+    CUR         VARCHAR(3),
+    OCCAMT      DECIMAL(15, 2),
+    PYRACC      VARCHAR(32),
+    PYRNAM      VARCHAR(60),
+    PYRADDR     VARCHAR(60),
+    PYEACC      VARCHAR(32),
+    PYENAM      VARCHAR(60),
+    PYEADDR     VARCHAR(60),
+    OPRATTNO    VARCHAR(2),
+    SEAL        VARCHAR(10),
+    BILDAT      VARCHAR(8),
+    BILNO       VARCHAR(8),
+    BILVER      VARCHAR(2),
+    PAYWAY      VARCHAR(1),
+    BILAMT      DECIMAL(15, 2),
+    RMNAMT      DECIMAL(15, 2),
+    USE         VARCHAR(20),
+    REMARK      VARCHAR(30),
+    BJEDTE      VARCHAR(8),
+    BSPSQN      VARCHAR(12),
+    BCSTAT      VARCHAR(2),
+    BDWFLG      VARCHAR(1),
+    EACTYP      VARCHAR(1),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_HPDZMX_PK PRIMARY KEY (SNDBNKCO, TRCDAT, TRCNO)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_INSBKA
+--
+
+CREATE TABLE RCC_INSBKA(
+    BJEDTE      VARCHAR(8)        NOT NULL,
+    BSPSQN      VARCHAR(12)       NOT NULL,
+    NCCWKDAT    VARCHAR(8),
+    TRDT        VARCHAR(8),
+    TLSQ        VARCHAR(10),
+    SBAC        VARCHAR(32),
+    RBAC        VARCHAR(32),
+    DASQ        VARCHAR(8),
+    MGID        VARCHAR(7),
+    BDWFLG      VARCHAR(1),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_INSBKA_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_MBRIFA
+--
+
+CREATE TABLE RCC_MBRIFA(
+    OPRTYPNO    VARCHAR(2)        NOT NULL,
+    ORWKDAT     VARCHAR(8)        NOT NULL,
+    ORSYSST     VARCHAR(2)        NOT NULL,
+    NWWKDAT     VARCHAR(8)        NOT NULL,
+    NWSYSST     VARCHAR(2)        NOT NULL,
+    HOLFLG      VARCHAR(1)        NOT NULL,
+    STRINFO     VARCHAR(60),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_MBRIFA_PK PRIMARY KEY (OPRTYPNO)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_MRQTBL
+--
+
+CREATE TABLE RCC_MRQTBL(
+    BJEDTE      VARCHAR(8)           NOT NULL,
+    BSPSQN      VARCHAR(12)          NOT NULL,
+    TRCCO       VARCHAR(8),
+    SNDBNKCO    VARCHAR(10),
+    SNDBNKNM    VARCHAR(60),
+    TRCDAT      VARCHAR(8),
+    TRCNO       VARCHAR(8),
+    NPCBKID     VARCHAR(12),
+    NPCBKNM     VARCHAR(60),
+    NPCACNT     VARCHAR(32),
+    OCCAMT      DECIMAL(15, 2),
+    REMARK      VARCHAR(60),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_MRQTBL_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_PAMTBL
+--
+
+CREATE TABLE RCC_PAMTBL(
+    BPATPE    VARCHAR(1)         NOT NULL,
+    BPARAD    VARCHAR(18)     NOT NULL,
+    BPACMT    VARCHAR(60),
+    BPADAT    VARCHAR(255),
+    BPAINF    VARCHAR(60),
+    BEFTDT    VARCHAR(8),
+    BINVDT    VARCHAR(8),
+    NOTE1     VARCHAR(10),
+    NOTE2     VARCHAR(20),
+    NOTE3     VARCHAR(60),
+    NOTE4     VARCHAR(60),
+    CONSTRAINT RCC_PAMTBL_PK PRIMARY KEY (BPATPE, BPARAD)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_PAYBNK
+--
+
+CREATE TABLE RCC_PAYBNK(
+    BANKBIN       VARCHAR(10)       NOT NULL,
+    BANKSTATUS    VARCHAR(1),
+    BANKATTR      VARCHAR(2),
+    STLBANKBIN    VARCHAR(10),
+    BANKNAM       VARCHAR(60),
+    BANKADDR      VARCHAR(60)    NOT NULL,
+    BANKPC        VARCHAR(6)        NOT NULL,
+    BANKTEL       VARCHAR(30)       NOT NULL,
+    EFCTDAT       VARCHAR(8)        NOT NULL,
+    INVDAT        VARCHAR(8),
+    ALTTYPE       VARCHAR(1),
+    PRIVILEGE     VARCHAR(20)       NOT NULL,
+    NEWOFLG       VARCHAR(1),
+    STRINFO       VARCHAR(60),
+    NOTE1         VARCHAR(10),
+    NOTE2         VARCHAR(20),
+    NOTE3         VARCHAR(60),
+    NOTE4         VARCHAR(60),
+    CONSTRAINT RCC_PAYBNK_PK PRIMARY KEY (BANKBIN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_PBDATE
+--
+
+CREATE TABLE RCC_PBDATE(
+    TRCDAT      VARCHAR(8)         NOT NULL,
+    TRCNO       VARCHAR(8)         NOT NULL,
+    SNDBNKCO    VARCHAR(10)        NOT NULL,
+    TRCCO       VARCHAR(7),
+    RCVBNKCO    VARCHAR(10),
+    EFCTDAT     VARCHAR(8),
+    PBDATYP     VARCHAR(3),
+    PBDAFILE    VARCHAR(255),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_PBDATE_PK PRIMARY KEY (TRCDAT, TRCNO, SNDBNKCO)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_PJCBKA
+--
+
+CREATE TABLE RCC_PJCBKA(
+    BJEDTE      VARCHAR(8)           NOT NULL,
+    BSPSQN      VARCHAR(12)          NOT NULL,
+    BRSFLG      VARCHAR(1)           NOT NULL,
+    BESBNO      VARCHAR(10),
+    BETELR      VARCHAR(6),
+    BEAUUS      VARCHAR(6),
+    NCCWKDAT    VARCHAR(8),
+    TRCCO       VARCHAR(7),
+    TRCDAT      VARCHAR(8),
+    TRCNO       VARCHAR(8),
+    SNDBNKCO    VARCHAR(10),
+    SNDBNKNM    VARCHAR(60),
+    RCVBNKCO    VARCHAR(10),
+    RCVBNKNM    VARCHAR(60),
+    BOJEDT      VARCHAR(8),
+    BOSPSQ      VARCHAR(12),
+    ORTRCCO     VARCHAR(7),
+    BILDAT      VARCHAR(8),
+    BILNO       VARCHAR(8),
+    BILPNAM     VARCHAR(60),
+    BILENDDT    VARCHAR(8),
+    BILAMT      DECIMAL(15, 2),
+    PYENAM      VARCHAR(60),
+    HONBNKNM    VARCHAR(60),
+    CONT        VARCHAR(60),
+    ISDEAL       VARCHAR(1),
+    PRCCO       VARCHAR(8),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_PJCBKA_PK PRIMARY KEY (BJEDTE, BSPSQN, BRSFLG)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_QSQHQD
+--
+
+CREATE TABLE RCC_QSQHQD(
+    STRDAT         VARCHAR(8)           NOT NULL,
+    ENDDAT         VARCHAR(8)           NOT NULL,
+    BESBNO         VARCHAR(10)          NOT NULL,
+    BESBNM         VARCHAR(60),
+    TRCCHRGCNT     SMALLINT          NOT NULL,
+    TRCCHRGAMT     DECIMAL(15, 2),
+    BILCHRGCNT     SMALLINT          NOT NULL,
+    BILCHRGAMT     DECIMAL(15, 2),
+    UCSWCHRGCNT    SMALLINT          NOT NULL,
+    UCSWCHRGAMT    DECIMAL(15, 2),
+    TCNT           SMALLINT          NOT NULL,
+    TAMT           DECIMAL(15, 2),
+    ISDEAL         VARCHAR(1),
+    FEDT           VARCHAR(8),
+    RBSQ           VARCHAR(12),
+    TRDT           VARCHAR(8),
+    TLSQ           VARCHAR(10),
+    MGID           VARCHAR(7),
+    NOTE1          VARCHAR(20),
+    NOTE2          VARCHAR(20),
+    NOTE3          VARCHAR(60),
+    NOTE4          VARCHAR(60),
+    CONSTRAINT RCC_QSQHQD_PK PRIMARY KEY (STRDAT, ENDDAT, BESBNO)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_REKBAL
+--
+
+CREATE TABLE RCC_REKBAL(
+    BJEDTE       VARCHAR(8)           NOT NULL,
+    BSPSQN       VARCHAR(12)          NOT NULL,
+    BOJEDT       VARCHAR(8),
+    BOSPSQ       VARCHAR(12),
+    NCCWKDAT     VARCHAR(8),
+    TRCDAT       VARCHAR(8)           NOT NULL,
+    TRCNO        VARCHAR(8)           NOT NULL,
+    SNDBNKCO     VARCHAR(10)          NOT NULL,
+    TRCCO        VARCHAR(7),
+    RCVBNKCO     VARCHAR(10),
+    CUR          VARCHAR(3),
+    LBDCFLG      VARCHAR(1),
+    LSTDTBAL     DECIMAL(15, 2),
+    NTTDCFLG     VARCHAR(1),
+    NTTBAL       DECIMAL(15, 2),
+    BALDCFLG     VARCHAR(1),
+    TODAYBAL     DECIMAL(15, 2),
+    AVLBAL       DECIMAL(15, 2),
+    NTODAYBAL    DECIMAL(15, 2),
+    CHKRST       VARCHAR(1),
+    NOTE1        VARCHAR(10),
+    NOTE2        VARCHAR(20),
+    NOTE3        VARCHAR(60),
+    NOTE4        VARCHAR(60),
+    CONSTRAINT RCC_REKBAL_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_SPBSTA
+--
+
+CREATE TABLE RCC_SPBSTA(
+    BJEDTE    VARCHAR(8)        NOT NULL,
+    BSPSQN    VARCHAR(12)       NOT NULL,
+    BCURSQ    SMALLINT       NOT NULL,
+    BCSTAT    VARCHAR(2),
+    BDWFLG    VARCHAR(1),
+    NOTE1     VARCHAR(10),
+    NOTE2     VARCHAR(20),
+    NOTE3     VARCHAR(60),
+    NOTE4     VARCHAR(60),
+    CONSTRAINT RCC_SPBSTA_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_SSTLOG
+--
+
+CREATE TABLE RCC_SSTLOG(
+    BJEDTE    VARCHAR(8)        NOT NULL,
+    BSPSQN    VARCHAR(12)       NOT NULL,
+    BCURSQ    SMALLINT       NOT NULL,
+    BESBNO    VARCHAR(10),
+    BEACSB    VARCHAR(10),
+    BETELR    VARCHAR(6),
+    BEAUUS    VARCHAR(6),
+    FEDT      VARCHAR(8),
+    RBSQ      VARCHAR(12),
+    TRDT      VARCHAR(8),
+    TLSQ      VARCHAR(10),
+    SBAC      VARCHAR(32),
+    ACNM      VARCHAR(60),
+    RBAC      VARCHAR(32),
+    OTNM      VARCHAR(60),
+    DASQ      VARCHAR(8),
+    MGID      VARCHAR(7),
+    PRCCO     VARCHAR(8),
+    BCSTAT    VARCHAR(2),
+    BDWFLG    VARCHAR(1),
+    PRTCNT    SMALLINT       NOT NULL,
+    BJETIM    VARCHAR(20),
+    NOTE1     VARCHAR(10),
+    NOTE2     VARCHAR(20),
+    NOTE3     VARCHAR(60),
+    NOTE4     VARCHAR(60),
+    CONSTRAINT RCC_SSTLOG_PK PRIMARY KEY (BJEDTE, BSPSQN, BCURSQ)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_SUBBRA
+--
+
+CREATE TABLE RCC_SUBBRA(
+    BESBNO     VARCHAR(10)       NOT NULL,
+    BESBNM     VARCHAR(60),
+    BESBTP     VARCHAR(2),
+    BTOPSB     VARCHAR(10),
+    BEACSB     VARCHAR(10),
+    BANKBIN    VARCHAR(10),
+    SUBFLG     VARCHAR(1),
+    STRINFO    VARCHAR(60),
+    NOTE1      VARCHAR(10),
+    NOTE2      VARCHAR(20),
+    NOTE3      VARCHAR(60),
+    NOTE4      VARCHAR(60),
+    CONSTRAINT RCC_SUBBRA_PK PRIMARY KEY (BESBNO)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_TRCBKA
+--
+
+CREATE TABLE RCC_TRCBKA(
+    BJEDTE        VARCHAR(8)           NOT NULL,
+    BSPSQN        VARCHAR(12)          NOT NULL,
+    BRSFLG        VARCHAR(1)           NOT NULL,
+    BESBNO        VARCHAR(10)          NOT NULL,
+    BEACSB        VARCHAR(10),
+    BETELR        VARCHAR(6)           NOT NULL,
+    BEAUUS        VARCHAR(6),
+    DCFLG         VARCHAR(1),
+    OPRNO         VARCHAR(2),
+    OPRATTNO      VARCHAR(2),
+    NCCWKDAT      VARCHAR(8)           NOT NULL,
+    TRCCO         VARCHAR(7)           NOT NULL,
+    TRCDAT        VARCHAR(8),
+    TRCNO         VARCHAR(8)           NOT NULL,
+    SNDBNKCO      VARCHAR(10),
+    SNDBNKNM      VARCHAR(60),
+    RCVBNKCO      VARCHAR(10),
+    RCVBNKNM      VARCHAR(60),
+    CUR           VARCHAR(3)           NOT NULL,
+    OCCAMT        DECIMAL(15, 2)    NOT NULL,
+    CHRGTYP       VARCHAR(1),
+    LOCCUSCHRG    DECIMAL(15, 2)    ,
+    CUSCHRG       DECIMAL(15, 2)    ,
+    PYRACC        VARCHAR(32),
+    PYRNAM        VARCHAR(60),
+    PYRADDR       VARCHAR(60),
+    PYEACC        VARCHAR(32),
+    PYENAM        VARCHAR(60),
+    PYEADDR       VARCHAR(60),
+    SEAL          VARCHAR(10),
+    USE           VARCHAR(20),
+    REMARK        VARCHAR(60),
+    BILTYP        VARCHAR(2),
+    BILDAT        VARCHAR(8),
+    BILNO         VARCHAR(8),
+    COMAMT        DECIMAL(15, 2),
+    OVPAYAMT      DECIMAL(15, 2),
+    CPSAMT        DECIMAL(15, 2),
+    RFUAMT        DECIMAL(15, 2),
+    CERTTYPE      VARCHAR(2),
+    CERTNO        VARCHAR(20),
+    BOJEDT        VARCHAR(8),
+    BOSPSQ        VARCHAR(12),
+    ORTRCDAT      VARCHAR(10),
+    ORTRCCO       VARCHAR(7),
+    ORTRCNO       VARCHAR(8),
+    ORSNDBNK      VARCHAR(10),
+    ORRCVBNK      VARCHAR(10),
+    STRINFO       VARCHAR(60),
+    NOTE1         VARCHAR(10),
+    NOTE2         VARCHAR(20),
+    NOTE3         VARCHAR(60),
+    NOTE4         VARCHAR(60),
+    CONSTRAINT RCC_TRCBKA_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_TRCCAN
+--
+
+CREATE TABLE RCC_TRCCAN(
+    BJEDTE      VARCHAR(8)           NOT NULL,
+    BSPSQN      VARCHAR(12)          NOT NULL,
+    BRSFLG      VARCHAR(1),
+    BESBNO      VARCHAR(10),
+    BETELR      VARCHAR(6),
+    BEAUUS      VARCHAR(6),
+    NCCWKDAT    VARCHAR(8),
+    TRCCO       VARCHAR(7),
+    TRCDAT      VARCHAR(6),
+    TRCNO       VARCHAR(8),
+    SNDBNKCO    VARCHAR(10),
+    SNDBNKNM    VARCHAR(60),
+    RCVBNKCO    VARCHAR(10),
+    RCVBNKNM    VARCHAR(60),
+    BOJEDT      VARCHAR(8),
+    BOSPSQ      VARCHAR(12),
+    ORTRCCO     VARCHAR(7),
+    CUR         VARCHAR(3),
+    OCCAMT      DECIMAL(15, 2),
+    CONT        VARCHAR(255),
+    CLRESPN     VARCHAR(1),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_TRCCAN_PK PRIMARY KEY (BJEDTE, BSPSQN)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_TRCSTA
+--
+
+CREATE TABLE RCC_TRCSTA(
+    NCCWKDAT    VARCHAR(8)           NOT NULL,
+    BESBNO      VARCHAR(10)          NOT NULL,
+    TRCCO       VARCHAR(7)           NOT NULL,
+    BRSFLG      VARCHAR(1)           NOT NULL,
+    BTOPSB      VARCHAR(10),
+    BEACSB      VARCHAR(10),
+    TCNT        SMALLINT          NOT NULL,
+    TAMT        DECIMAL(15, 2),
+    ISDEAL      VARCHAR(1),
+    STRINFO     VARCHAR(60),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_TRCSTA_PK PRIMARY KEY (NCCWKDAT, BESBNO, TRCCO, BRSFLG)
+)in afa_data index in afa_idx
+;
+
+
+
+--
+-- TABLE: RCC_ZTCBKA
+--
+
+CREATE TABLE RCC_ZTCBKA(
+    BJEDTE      VARCHAR(8)           NOT NULL,
+    BSPSQN      VARCHAR(12)          NOT NULL,
+    BRSFLG      VARCHAR(1)           NOT NULL,
+    BESBNO      VARCHAR(10),
+    BEACSB      VARCHAR(10),
+    BETELR      VARCHAR(6),
+    BEAUUS      VARCHAR(6),
+    NCCWKDAT    VARCHAR(8),
+    TRCCO       VARCHAR(7),
+    TRCDAT      VARCHAR(8),
+    TRCNO       VARCHAR(8),
+    SNDBNKCO    VARCHAR(10),
+    SNDBNKNM    VARCHAR(60),
+    RCVBNKCO    VARCHAR(10),
+    RCVBNKNM    VARCHAR(60),
+    BOJEDT      VARCHAR(8),
+    BOSPSQ      VARCHAR(12),
+    ORTRCCO     VARCHAR(7),
+    CUR         VARCHAR(3),
+    OCCAMT      DECIMAL(15, 2),
+    CONT        VARCHAR(255),
+    NCCTRCST    VARCHAR(2),
+    MBRTRCST    VARCHAR(2),
+    ISDEAL      VARCHAR(1),
+    NOTE1       VARCHAR(10),
+    NOTE2       VARCHAR(20),
+    NOTE3       VARCHAR(60),
+    NOTE4       VARCHAR(60),
+    CONSTRAINT RCC_ZTCBKA_PK PRIMARY KEY (BJEDTE, BSPSQN, BRSFLG)
+)in afa_data index in afa_idx
+;
+
+----
+---- INDEX: RCC_CADBNK
+----
+--
+--DROP INDEX RCC_CADBNK
+--;
+--
+--CREATE UNIQUE INDEX RCC_CADBNK_IDX1 ON RCC_CADBNK(CARDBIN)
+--;
+----
+---- INDEX: RCC_ERRINF
+----
+--
+--DROP INDEX RCC_ERRINF
+--;
+--
+--CREATE UNIQUE INDEX RCC_ERRINF_IDX1 ON RCC_ERRINF(MBRTYP, ERRKEY)
+--;
+----
+---- INDEX: RCC_HDCBKA
+----
+--
+--DROP INDEX RCC_HDCBKA
+--;
+--
+--CREATE UNIQUE INDEX HDCBKA ON HDCBKA_X(BJEDTE, BSPSQN)
+--;
+----
+---- INDEX: RCC_HDDZCZ
+----
+--
+--DROP INDEX RCC_HDDZCZ
+--;
+--
+--CREATE UNIQUE INDEX HDDZCZ ON HDDZCZ_X(SNDBNKCO, TRCDAT, TRCNO)
+--;
+----
+---- INDEX: RCC_HDDZHZ
+----
+--
+--DROP INDEX RCC_HDDZHZ
+--;
+--
+--CREATE UNIQUE INDEX HDDZHZ ON HDDZHZ_X(NCCWKDAT, TRCCO, TRCRS)
+--;
+----
+---- INDEX: RCC_HDDZMX
+----
+--
+--DROP INDEX RCC_HDDZMX
+--;
+--
+--CREATE UNIQUE INDEX HDDZMX ON HDDZMX_X(SNDBNKCO, TRCDAT, TRCNO)
+--;
+----
+---- INDEX: RCC_HDHBKA
+----
+--
+--DROP INDEX RCC_HDHBKA
+--;
+--
+--CREATE UNIQUE INDEX HDHBKA ON HDHBKA_X(BJEDTE, BSPSQN)
+--;
+----
+---- INDEX: RCC_HDNBKA
+----
+--
+--DROP INDEX RCC_HDNBKA
+--;
+--
+--CREATE UNIQUE INDEX HDNBKA ON HDNBKA_X(BJEDTE, BSPSQN)
+--;
+----
+---- INDEX: RCC_HPCBKA
+----
+--
+--DROP INDEX RCC_HPCBKA
+--;
+--
+--CREATE UNIQUE INDEX HPCBKA ON HPCBKA_X(BJEDTE, BSPSQN)
+--;
+----
+---- INDEX: RCC_HPHBKA
+----
+--
+--DROP INDEX RCC_HPHBKA
+--;
+--
+--CREATE UNIQUE INDEX HPHBKA ON HPHBKA_X(BSPSQN, BRSFLG)
+--;
+----
+---- INDEX: RCC_HPNBKA
+----
+--
+--DROP INDEX RCC_HPNBKA
+--;
+--
+--CREATE UNIQUE INDEX HPNBKA ON HPNBKA_X(BJEDTE, BSPSQN)
+--;
+----
+---- INDEX: RCC_HPNINF
+----
+--
+--DROP INDEX RCC_HPNINF
+--;
+--
+--CREATE UNIQUE INDEX HPNINF ON HPNINF_X(BILVER, BILNO, BILRS)
+--;
+----
+---- INDEX: RCC_MBRIFA
+----
+--
+--DROP INDEX RCC_MBRIFA
+--;
+--
+--CREATE UNIQUE INDEX MBRIFA ON MBRIFA_X(OPRTYPNO)
+--;
+----
+---- INDEX: RCC_PAYBNK
+----
+--
+--DROP INDEX RCC_PAYBNK
+--;
+--
+--CREATE UNIQUE INDEX PAYBNK ON PAYBNK_X(BANKBIN)
+--;
+----
+---- INDEX: RCC_PBDATE
+----
+--
+--DROP INDEX RCC_PBDATE
+--;
+--
+--CREATE UNIQUE INDEX PBDATE ON PBDATE_X(RECDAT, TRCNO, SNDBNKCO)
+--;
+----
+---- INDEX: RCC_PBINFO
+----
+--
+--DROP INDEX RCC_PBINFO
+--;
+--
+--CREATE UNIQUE INDEX PBINFO ON PBINFO_X(BJEDTE, BSPSQN)
+--;
+----
+---- INDEX: RCC_PJCBKA
+----
+--
+--DROP INDEX RCC_PJCBKA
+--;
+--
+--CREATE UNIQUE INDEX PJCBKA ON PJCBKA_X(BJEDTE, BSPSQN)
+--;
+----
+---- INDEX: RCC_REKBAL
+----
+--
+--DROP INDEX RCC_REKBAL
+--;
+--
+--CREATE UNIQUE INDEX REKBAL ON REKBAL_X(TRCDAT, TRCNO, SNDBNKCO)
+--;
+----
+---- INDEX: RCC_SPBSTA
+----
+--
+--DROP INDEX RCC_SPBSTA
+--;
+--
+--CREATE UNIQUE INDEX SPBSTA ON SPBSTA_X(BJEDTE, BSPSQN)
+--;
+----
+---- INDEX: RCC_SSTLOG
+----
+--
+--DROP INDEX RCC_SSTLOG
+--;
+--
+--CREATE UNIQUE INDEX SSTLOG ON SSTLOG_X(BJEDTE, BSPSQN, BCURSQ)
+--;
+----
+---- INDEX: RCC_SUBBRA
+----
+--
+--DROP INDEX RCC_SUBBRA
+--;
+--
+--CREATE UNIQUE INDEX SUBBRA ON SUBBRA_X(BESBNO)
+--;

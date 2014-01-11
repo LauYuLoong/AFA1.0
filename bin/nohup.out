@@ -1,0 +1,232 @@
+2010-12-13 14:59:29,297 LoggingServer.py(218): INFO Starting logging server...
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/SocketServer.py", line 463, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/local/lib/python2.4/SocketServer.py", line 254, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.4/SocketServer.py", line 521, in __init__
+    self.handle()
+  File "LoggingServer.py", line 48, in handle
+    chunk = self.connection.recv( 4 )
+error: (4, 'Interrupted system call')
+----------------------------------------
+Exception happened during processing of request from 
+----------------------------------------
+Traceback (most recent call last):
+  File "LoggingServer.py", line 219, in ?
+    startServer( )
+  File "LoggingServer.py", line 190, in startServer
+    rd, wr, ex = select.select( [listenFilno, serverFilno], [], [], timeout )
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.4/logging/__init__.py", line 737, in emit
+    self.stream.write(fs % msg)
+ValueError: I/O operation on closed file

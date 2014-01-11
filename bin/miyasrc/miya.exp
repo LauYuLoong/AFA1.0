@@ -1,0 +1,28 @@
+#!build/lib.aix-5.3-2.4/miya.so
+*
+* Generated automatically by makexp_aix  (公元2008年07月16日  星期三  09时14分14秒)
+*
+* Base Directory: /home/maps/afa/bin/miyasrc
+* Input File(s) : build/temp.aix-5.3-2.4/miyamodule.o
+*
+* NOTE: lists _all_ global symbols defined in the above file(s).
+*
+CipherTransact
+CloseConnect_MY
+ConnectToHsm
+DraftEncrypt
+GetAscii
+GetCurrentDate
+GetHex
+GetKeyvalueFile
+ServerName1
+ServerName2
+SetParam
+SetParamAll
+TcpOutTime
+initmiya
+m_MyLoopFlag
+m_MyLoopNum
+m_TimeOut
+myrand
+sock_check

@@ -1,0 +1,6 @@
+ls *.ini  | awk '{
+                  split($1,arr,".")
+                  cmd=sprintf("crttabsrc.sh %s",arr[1])
+                  printf "%s\n" , cmd
+                  system(cmd)
+                 } '

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MONITOR cmdType="99" cmdDesc="testMonitor">
+	<PARAM name="testName1" value="testValue1"/>
+	<PARAM name="testName222" value="testValue222"/>
+</MONITOR>

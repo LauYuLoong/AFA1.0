@@ -1,0 +1,91 @@
+# -*- coding: gbk -*-
+##################################################################
+#   代收代付平台
+#=================================================================
+#   程序文件:   T3001_8445.py
+#   修改时间:   2007-10-21
+##################################################################
+import TradeContext, AfaDBFunc, AfaLoggerFunc
+
+def SubModuleDealFst( ):
+
+    TradeContext.__agentEigen__  = '0'   #从表标志
+
+    if (TradeContext.channelCode =='001' ): #柜面交易不计发票
+        TradeContext.__billSaveCtl__  = '0'
+    else:
+        TradeContext.__billSaveCtl__  = '1'
+
+    return True
+
+def SubModuleDealSnd():
+
+    AfaLoggerFunc.tradeInfo( "********************开始冲正******************" )
+
+    #首先将缴款书信息置为无效，再将上传补录数据置为无效，删除掉勾兑表中的关系
+
+    sqlstr =   "select * from FS_FC76 where AFC001='" + TradeContext.userNo + "'"
+
+    #===条件增加银行编码字段,张恒修改===
+    sqlstr = sqlstr + " and afc153 = '" + TradeContext.bankbm + "'"
+
+    records = AfaDBFunc.SelectSql( sqlstr )
+    
+    if( records and len( records)>0 ):
+        sqlstr  =   ""
+        #begin 20100716 蔡永贵修改 由原来的更新改为删除
+        #sqlstr  =   "update fs_fc76 set flag='1' where afc001='" + TradeContext.userNo + "'"
+        sqlstr = " delete from fs_fc76 where afc001='" + TradeContext.userNo + "'"
+
+        #===条件增加银行编码字段,张恒修改===
+        sqlstr = sqlstr + " and afc153 = '" + TradeContext.bankbm + "'"
+
+        #if( AfaDBFunc.UpdateSqlCmt( sqlstr ) < 1 ):
+        if( AfaDBFunc.DeleteSqlCmt( sqlstr ) < 1 ):
+        #end
+            TradeContext.errorCode, TradeContext.errorMsg='0001', '将缴款书信息置为无效失败,冲正失败'
+            AfaLoggerFunc.tradeInfo( TradeContext.errorMsg + AfaDBFunc.sqlErrMsg )
+            return False
+
+    #首先查找是否有补录数据,有则将数据置为无效，没有则不要操作
+    AfaLoggerFunc.tradeInfo("将补录数据置为无效")
+
+    sqlstr =   "select * from FS_FC84 where AFC001='" + TradeContext.userNo + "'"
+
+    #===条件增加银行编码字段,张恒修改===
+    sqlstr = sqlstr + " and afa101 = '" + TradeContext.bankbm + "'"
+
+    records = AfaDBFunc.SelectSql( sqlstr )
+    if( records and len( records)>0 ):
+        sqlstr  =   ""
+        sqlstr  =   "update fs_fc84 set flag='1' where afc001='" + TradeContext.userNo + "'"
+
+        #===条件增加银行编码字段,张恒修改===
+        sqlstr = sqlstr + " and afa101 = '" + TradeContext.bankbm + "'"
+
+        if( AfaDBFunc.UpdateSqlCmt( sqlstr ) < 1 ):
+            TradeContext.errorCode, TradeContext.errorMsg='0002', '将上传补录数据置为无效失败,冲正失败'
+            AfaLoggerFunc.tradeInfo( TradeContext.errorMsg  )
+            AfaLoggerFunc.tradeInfo( AfaDBFunc.sqlErrMsg )
+            return False
+
+    AfaLoggerFunc.tradeInfo("将勾兑数据置为无效")
+    sqlstr =   "select * from FS_FC74 where AFC001='" + TradeContext.userNo + " ' "
+
+    #===条件增加银行编码字段,张恒修改===
+    sqlstr = sqlstr + " and afa101 = '" + TradeContext.bankbm + "'"
+
+    records = AfaDBFunc.SelectSql( sqlstr )
+    if( records and len( records)>0 ):
+        sqlstr  =   ""
+        sqlstr  =   "update fs_fc74 set flag='*' where afc001='" + TradeContext.userNo + "'"
+
+        #===条件增加银行编码字段,张恒修改===
+        sqlstr = sqlstr + " and afa101 = '" + TradeContext.bankbm + "'"
+
+        if( AfaDBFunc.UpdateSqlCmt( sqlstr ) < 1 ):
+            TradeContext.errorCode, TradeContext.errorMsg='0002', '删除勾兑关系失败,冲正失败'
+            AfaLoggerFunc.tradeInfo( TradeContext.errorMsg + AfaDBFunc.sqlErrMsg )
+            return False
+
+    return True

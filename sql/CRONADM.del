@@ -1,0 +1,11 @@
+"00001","主机日期与时间同步","1","*","*","*","*","1","*","python /home/maps/afa/admin/data/get_date.py","2008080217545","",""
+"00002","主机日期与时间同步","1","*","*","*","*","30","*","python /home/maps/afa/admin/data/get_date.py","2008080217545","",""
+"00003","凭证管理主机对帐","0","*","*","*","19","1","*","python /home/maps/afa/application/vouh/template/Tvouh023.py 3","2008061017231",,
+"00004","凭证管理签到","0","*","*","*","5","1","*","python /home/maps/afa/application/vouh/template/Tvouh023.py 1","2008061017231",,
+"00005","非税缴款书下载","1","*","*","*","*","5","*","python /home/maps/afa/application/fsyw/trade/AHFS_JKSXZ.py","2008080217055","",""
+"00006","非税基础数据下载","1","*","*","*","*","5","*","python /home/maps/afa/application/fsyw/trade/AHFS_JCSJSZ.py","2008080217055","",""
+"00007","非税退付下载","1","*","*","*","*","5","*","python /home/maps/afa/application/fsyw/trade/AHFS_TF.py","2008080217055","",""
+"00008","非税账号余额下载","1","*","*","*","*","5","*","python /home/maps/afa/application/fsyw/trade/AHFS_SCFC60.py","2008080217055","",""
+"00009","非税数据长传","1","*","*","*","*","5","*","python /home/maps/afa/application/fsyw/trade/AHFS_SCSJ.py","2008080217055","",""
+"00010","非税签到","1","*","*","*","5","5","*","python /home/maps/afa/application/fsyw/trade/AHFS_LOGIN.py","2008080217055","",""
+"00011","非税签退","1","*","*","*","19","7","*","python /home/maps/afa/application/fsyw/trade/AHFS_LOGOUT.py","2008080217055","",""

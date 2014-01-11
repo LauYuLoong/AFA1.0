@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MONITOR cmdType="1" cmdDesc="configGroupPolicy">
+	<PARAM name="serviceProcessNum" value="1"/>
+<!--
+	<PARAM name="uselessName" value="uselessValue"/>
+-->
+</MONITOR>
